@@ -1,0 +1,7 @@
+dist
+.venv
+.vscode
+node_modules
+__pycache__
+db.db
+test.py

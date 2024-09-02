@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import './colors.scss';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--font-color);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  font-family: 'Montserrat', sans-serif;
+}
+
+a {
+  all: unset;
+}
+
+.caption {
+  width: 1160px;
+}
+
+.fs-default {
+  font-size: 1.45ch;
+}
+
+.main-h {
+  font-weight: 500;
+  margin-top: 10px;
+}
+
+.ViewForm {
+  width: 1160px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 18px;
+  background-color: var(--fg-color);
+  padding: 4px;
+  border-radius: 4px;
+}
+
+.ThinViewForm {
+  width: 860px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 18px;
+  background-color: var(--fg-color);
+  padding: 4px 25px;
+  border-radius: 4px;
+}
+
+@media (max-width: 1160px) {
+  .caption,
+  .ViewForm {
+    width: 100vw;
+    border-radius: 0px;
+  }
+}
+
+@media (max-width: 860px) {
+  .ThinViewForm {
+    width: 100vw;
+    border-radius: 0px;
+  }
+}
+
+.hint-button {
+  width: 100%;
+  height: 35px;
+  padding-left: 4px;
+  background-color: var(--input-bg-color);
+  box-shadow: 0px 0px 0px 1px var(--shadow-color);
+  border: unset;
+  outline: unset;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  transition: background-color 0.2s;
+  color: var(--input-font-color);
+  &:hover {
+    background-color: var(--accent-color-hover);
+  }
+  &:active {
+    background-color: var(--accent-color-active);
+  }
+}
+
+.selected-hint-button {
+  border: unset;
+  outline: unset;
+  padding: 3px;
+  background-color: var(--input-bg-color);
+  box-shadow: 0px 0px 0px 1px var(--shadow-color);
+  &:hover {
+    background-color: var(--accent-color-hover);
+  }
+  &:active {
+    background-color: var(--accent-color-active);
+  }
+}
