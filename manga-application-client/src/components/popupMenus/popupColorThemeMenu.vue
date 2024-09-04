@@ -1,27 +1,31 @@
 <script>
-import navButton from '@/components/buttons/navButton.vue';
+import themeSwitchButton from '../buttons/themeSwitchButton.vue';
+import { applyColors, setHue, getHue } from '@/color_funcs';
 
 export default {
     name: "popupColorThemeMenu",
     components: {
-        navButton
+        themeSwitchButton
     },
     data() {
         return {
-            sliderThumbColor: "#00ffff",
+            value: getHue(),
         }
     },
     methods: {
+        onInputChange() {
+            setHue(this.value)
+            applyColors()
+        }
     }
 }
 </script>
 
 <template>
     <div class="popup-menu">
-        <navButton v-for="(field, index) in fields" :key="index" :title="field.title" @click="redirect(field.link)"
-            class="row" />
+        <themeSwitchButton v-on:click="onInputChange" />
         <div class="slider-container">
-            <input type="range" id="slider" min="0" max="360" :style="{}" value="180" step="1">
+            <input type="range" id="slider" min="0" max="360" @input="onInputChange" v-model="value" step="1">
         </div>
     </div>
 </template>
@@ -33,18 +37,21 @@ export default {
     padding: 4px;
     right: 0;
     top: 52px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
     border-radius: 4px;
     background-color: var(--fg-color);
     -webkit-box-shadow: 0px 2px 6px 0px var(--shadow-color);
     -moz-box-shadow: 0px 2px 6px 0px var(--shadow-color);
     box-shadow: 0px 2px 6px 0px var(--shadow-color);
     font-size: medium;
-
-    .row {
-        width: 100%;
-        display: flex;
-        align-items: flex-start;
-        justify-content: flex-start;
+    gap: 4px;
+    height: 40px;
+    
+    * {
+        flex-shrink: 0;
+        height: 100%;
     }
 
     .slider-container {
@@ -52,10 +59,10 @@ export default {
             -webkit-appearance: none;
             appearance: none;
             width: 220px;
-            height: 29px;
+            height: 100%;
             padding: 0 0px;
             background: linear-gradient(90deg, #ff0000, #ffff00, #00ff00, #00ffff, #0000ff, #ff00ff, #ff0000);
-            border-radius: 4px;
+            border-radius: 2px;
             outline: none;
             overflow: hidden;
         }

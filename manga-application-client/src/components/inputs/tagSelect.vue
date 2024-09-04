@@ -85,14 +85,16 @@ export default {
   <div class="buttons">
     <h4>{{ title }}</h4>
     <div class="margin-left">
-      <button v-if="!showHints" class="btn" @click="showHint"> <svg xmlns="http://www.w3.org/2000/svg" fill="none"
-          viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="size-6">
+      <button v-if="!showHints" class="btn" @click="showHint"> 
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+          viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-6">
           <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
         </svg>
 
       </button>
-      <button v-if="showHints" @click="hideHint" class="btn"> <svg xmlns="http://www.w3.org/2000/svg" fill="none"
-          viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="size-6">
+      <button v-if="showHints" @click="hideHint" class="btn"> 
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+          viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-6">
           <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
         </svg>
       </button>
@@ -132,6 +134,11 @@ export default {
   flex-wrap: wrap;
 }
 
+svg {
+        width: 20px;
+        height: 20px;
+        stroke: var(--accent-font);
+    }
 .wrapper {
   position: relative;
   width: 100%;
@@ -156,6 +163,7 @@ export default {
       right: 0;
     }
 
+
     input {
       border: unset;
       outline: unset;
@@ -164,6 +172,7 @@ export default {
       height: 30px;
       font-size: medium;
       border-radius: 2px 2px 0px 0px;
+      background-color: var(--input-bg-color);
       box-shadow: 0px 0px 0px 1px var(--shadow-color);
     }
 

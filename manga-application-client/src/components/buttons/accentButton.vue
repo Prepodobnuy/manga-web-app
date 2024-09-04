@@ -25,11 +25,12 @@ button.button-bg {
     -moz-box-shadow: 0px 2px 6px 0px var(--shadow-color);
     box-shadow: 0px 2px 6px 0px var(--shadow-color);
     transition: background-color 0.2s, padding 0.2s;
-    background-color: var(--accent-color);
-    color: var(--font-color);
+    background-color: var(--input-bg-color);
+    color: var(--input-font-color);
 
     &:hover {
         background-color: var(--accent-color-hover);
+        color: var(--selected-font-color);
     }
 }
 </style>

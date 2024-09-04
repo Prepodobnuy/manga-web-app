@@ -63,6 +63,7 @@ export default {
         width: 100%;
         height: 100%;
         font-size: medium;
+        background-color: var(--input-bg-color);
     }
 }
 </style>

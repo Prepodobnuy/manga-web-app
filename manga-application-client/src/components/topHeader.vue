@@ -5,6 +5,7 @@ import popupNewObjectMenu from '@/components/popupMenus/popupNewObjectMenu.vue'
 import popupNotificationMenu from '@/components/popupMenus/popupNotificationMenu.vue'
 import popupColorThemeMenu from './popupMenus/popupColorThemeMenu.vue'
 import TopSearchBar from '@/components/TopSearchBar.vue'
+import IconHome from './icons/IconHome.vue'
 
 export default {
     name: "topHeader",
@@ -17,7 +18,8 @@ export default {
         popupNewObjectMenu,
         popupNotificationMenu,
         popupColorThemeMenu,
-        TopSearchBar
+        TopSearchBar,
+        IconHome
     },
     data() {
         return {
@@ -54,6 +56,7 @@ export default {
             this.showCreatePopup = false
         },
         showSearchFieldClick() {
+            this.hideAll()
             this.showSearchField = true
         },
         hideSearchFieldClick() {
@@ -62,7 +65,7 @@ export default {
         hideAll() {
             this.showCreatePopup = false
             this.showNotifyPopup = false
-            this.showSearchField = false
+            this.showColorThemePopup = false
         }
     }
 }
@@ -74,7 +77,7 @@ export default {
     </transition>
     <header class="top-header">
         <div class="caption">
-            <RouterLink class="main-link" to="/">Манга</RouterLink>
+            <RouterLink class="main-link" to="/"> <IconHome class="icon-home" /> Манга</RouterLink>
             <nav>
                 <RouterLink to="/catalog">
                     <navButton title="Каталог" leftD="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
@@ -155,15 +158,36 @@ header.top-header {
             user-select: none;
             font-size: 2.2ch;
             user-select: none;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-items: center;
             cursor: pointer;
             transition: color 0.2s;
 
             &:hover {
                 color: var(--accent-font-hover);
+                .icon-home {
+                    transition: fill 0.2s;
+                    .fill {
+                        fill:var(--accent-font-hover);
+                    }
+                    .border {
+                        fill:var(--accent-font-hover);
+                    }
+                }
             }
 
             &:active {
                 color: var(--accent-font-active);
+                .icon-home {
+                    .fill {
+                        fill:var(--accent-font-active);
+                    }
+                    .border {
+                        fill:var(--accent-font-active);
+                    }
+                }
             }
         }
 

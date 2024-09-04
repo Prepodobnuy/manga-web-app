@@ -82,6 +82,7 @@ export default {
 
             &.selected {
                 background-color: var(--inactive-accent-color-active);
+                color: var(--selected-font-color);
                 padding-right: 8px;
                 padding-left: 8px;
             }
