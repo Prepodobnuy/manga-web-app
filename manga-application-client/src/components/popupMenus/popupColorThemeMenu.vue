@@ -48,7 +48,7 @@ export default {
     font-size: medium;
     gap: 4px;
     height: 40px;
-    
+
     * {
         flex-shrink: 0;
         height: 100%;
@@ -68,12 +68,13 @@ export default {
         }
 
         input[type="range"]::-moz-range-thumb {
-            box-shadow: 0px 0px 0px 2px var(--input-bg-color);
-            background-color: transparent;
+            box-shadow: 0px 0px 0px 9px var(--fg-color);
+            background-color: var(--accent-font);
             border: none;
-            border-radius: 0px;
-            height: 29px;
-            width: 3px;
+            border-radius: 2px;
+            padding: 3px;
+            height: 1px;
+            width: 1px;
         }
 
 
