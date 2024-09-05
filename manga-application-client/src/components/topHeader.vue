@@ -77,7 +77,9 @@ export default {
     </transition>
     <header class="top-header">
         <div class="caption">
-            <RouterLink class="main-link" to="/"> <IconHome class="icon-home" /> Манга</RouterLink>
+            <RouterLink class="main-link" to="/">
+                <IconHome class="icon-home" /> Манга
+            </RouterLink>
             <nav>
                 <RouterLink to="/catalog">
                     <navButton title="Каталог" leftD="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
@@ -142,9 +144,6 @@ header.top-header {
     z-index: 1000;
     top: 0;
     left: 0;
-    -webkit-box-shadow: 0px 2px 6px 0px var(--shadow-color);
-    -moz-box-shadow: 0px 2px 6px 0px var(--shadow-color);
-    box-shadow: 0px 2px 6px 0px var(--shadow-color);
 
     .caption {
         height: 100%;
@@ -167,25 +166,30 @@ header.top-header {
 
             &:hover {
                 color: var(--accent-font-hover);
+
                 .icon-home {
                     transition: fill 0.2s;
+
                     .fill {
-                        fill:var(--accent-font-hover);
+                        fill: var(--accent-font-hover);
                     }
+
                     .border {
-                        fill:var(--accent-font-hover);
+                        fill: var(--accent-font-hover);
                     }
                 }
             }
 
             &:active {
                 color: var(--accent-font-active);
+
                 .icon-home {
                     .fill {
-                        fill:var(--accent-font-active);
+                        fill: var(--accent-font-active);
                     }
+
                     .border {
-                        fill:var(--accent-font-active);
+                        fill: var(--accent-font-active);
                     }
                 }
             }
@@ -219,7 +223,7 @@ header.top-header {
 .modal-fade-enter-from,
 .modal-fade-leave-to {
     opacity: 0;
-    transform: translate(10px, 0px);
+    transform: translate(0px, 10px);
 }
 
 .modal-fade-enter-to,

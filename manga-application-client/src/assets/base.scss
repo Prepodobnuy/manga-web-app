@@ -29,20 +29,42 @@ a {
   all: unset;
 }
 
-.caption {
-  width: 1160px;
+.fs-small {
+  font-size: 1.25ch;
 }
 
 .fs-default {
   font-size: 1.45ch;
 }
 
+.fs-big {
+  font-size: 1.65ch;
+}
+
+.fs-bigger {
+  font-size: 1.85ch;
+}
+
+.fs-biggest {
+  font-size: 2.15ch;
+}
+
+.fs-giant {
+  font-size: 2.35ch;
+}
+
 .main-h {
   font-weight: 500;
 }
 
+.caption {
+  max-width: 1160px;
+  width: 100%;
+}
+
 .ViewForm {
-  width: 1160px;
+  max-width: 1160px;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 18px;
@@ -51,8 +73,17 @@ a {
   border-radius: 4px;
 }
 
+.ViewForm-no-bg {
+  max-width: 1160px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 18px;
+}
+
 .ThinViewForm {
-  width: 860px;
+  max-width: 860px;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 18px;
@@ -61,18 +92,21 @@ a {
   border-radius: 4px;
 }
 
-@media (max-width: 1160px) {
+@media (max-width: 1192px) {
   .caption,
-  .ViewForm {
-    width: 100vw;
-    border-radius: 0px;
+  .ViewForm,
+  .ViewForm-no-bg {
+    margin-left: 16px;
+    margin-right: 16px;
+    width: calc(100vw - 32px);
   }
 }
 
-@media (max-width: 860px) {
+@media (max-width: 892px) {
   .ThinViewForm {
-    width: 100vw;
-    border-radius: 0px;
+    margin-left: 16px;
+    margin-right: 16px;
+    width: calc(100vw - 32px);
   }
 }
 

@@ -14,12 +14,14 @@ export default {
             buttons: [
                 { title: 'Манга' },
                 { title: 'Автор' },
+                { title: 'Художник' },
                 { title: 'Издатель' },
                 { title: 'Пользователь' }
             ],
             previewTextValues: [
                 { title: 'Поиск по манге' },
                 { title: 'Поиск автора' },
+                { title: 'Поиск художника' },
                 { title: 'Поиск издателя' },
                 { title: 'Поиск пользователя' }
             ],

@@ -1,12 +1,12 @@
 <script>
 import Cropper from 'cropperjs';
 import 'cropperjs/dist/cropper.css';
-import accentButton from '../buttons/accentButton.vue';
+import seriousButton from '@/components/buttons/seriousButton.vue';
 
 export default {
     name: "imageInput",
     components: {
-        accentButton
+        seriousButton
     },
     props: {
         image_width: Number,
@@ -71,8 +71,8 @@ export default {
         <img ref="image" :src="imageSrc" />
     </div>
     <div v-if="editImage" class="button-row">
-        <accentButton @click="getCroppedImage" title="Продолжить" />
-        <accentButton @click="stopCropping" title="Отмена" />
+        <seriousButton @click="stopCropping" title="Отмена" />
+        <seriousButton @click="getCroppedImage" title="Продолжить" />
     </div>
 </template>
 
@@ -104,6 +104,11 @@ export default {
     }
 }
 
+img {
+    border: unset;
+    outline: unset;
+}
+
 .cropper-container {
     width: 100%;
     height: 350px;
@@ -111,11 +116,9 @@ export default {
 
 .button-row {
     margin-top: 5px;
-    max-width: 450px;
-    width: 100%;
     display: flex;
     flex-direction: row;
-    gap: 5px;
     flex-wrap: nowrap;
+    gap: 30px;
 }
 </style>

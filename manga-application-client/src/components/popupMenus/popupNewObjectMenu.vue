@@ -1,17 +1,20 @@
 <script>
 import navButton from '@/components/buttons/navButton.vue';
+import LineSplitter from './LineSplitter.vue';
 
 export default {
     name: "popupNewObjectMenu",
     components: {
-        navButton
+        navButton,
+        LineSplitter
     },
     data() {
         return {
             fields: [
                 { title: 'Добавить тайтл', link: '/create/title' },
                 { title: 'Добавить автора', link: '/create/author' },
-                { title: 'Мои добавления', link: '/create' },
+                { title: 'Добавить художника', link: '/create/artist' },
+                { title: 'Добавить издательство', link: '/create/publisher' },
             ]
         }
     },
@@ -28,6 +31,8 @@ export default {
     <div class="popup-menu">
         <navButton v-for="(field, index) in fields" :key="index" :title="field.title" @click="redirect(field.link)"
             class="row" />
+        <LineSplitter />
+        <navButton class="row" title="Мои добавления" @click="redirect('/create')" />
     </div>
 </template>
 

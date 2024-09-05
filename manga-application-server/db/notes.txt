@@ -1,5 +1,0 @@
-#Creating a database
-sudo -u postgres initdb --locale en_US.UTF-8 -D '/var/lib/postgres/data'
-sudo systemctl start postgresql
-sudo -u postgres createuser -s [USER_NAME]
-sudo -u postgres createdb -O [USER_NAME] [DB_NAME]

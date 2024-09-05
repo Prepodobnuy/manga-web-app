@@ -24,13 +24,22 @@ button.button-bg {
     -webkit-box-shadow: 0px 2px 6px 0px var(--shadow-color);
     -moz-box-shadow: 0px 2px 6px 0px var(--shadow-color);
     box-shadow: 0px 2px 6px 0px var(--shadow-color);
-    transition: background-color 0.2s, padding 0.2s;
+    transition:
+        background-color 0.2s,
+        padding 0.2s,
+        color 0.1s,
+        transform 0.1s;
+
     background-color: var(--input-bg-color);
     color: var(--input-font-color);
 
     &:hover {
-        background-color: var(--accent-color-hover);
+        background-color: var(--accent-color-active);
         color: var(--selected-font-color);
+    }
+
+    &:active {
+        transform: translateY(1px) scale(0.99);
     }
 }
 </style>

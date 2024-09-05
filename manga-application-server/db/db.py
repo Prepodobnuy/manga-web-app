@@ -5,37 +5,22 @@ import datetime
 from sqlalchemy import func
 
 from db.session import get_session_engine
-from db.entities import *
-from db.logger import Logger
+from db.tables import *
 
 
-#logger = Logger(log_file_path='logs/test', log_to_term=False, log_to_file=False, displayed_log_level=999)
 session, engine = get_session_engine()
 Base.metadata.create_all(bind=engine)
 
 
 def commit_after(func):
     def wrapper(*args, **kwargs):
-        #func_name = f"{func.__qualname__}{args}"
         try:
             result = func(*args, **kwargs)
             session.commit()
-            #logger.log(
-            #    "Commited changes after executing",        
-            #    os.path.relpath(func.__code__.co_filename),
-            #    func_name,
-            #    log_level=1
-            #    )
             return result
         except Exception as e:
             print(e)
             session.rollback()
-            #logger.log(
-            #    "Failed to commit changes after executing",        
-            #    os.path.relpath(func.__code__.co_filename),
-            #    func_name,
-            #    log_level=3
-            #    )
     return wrapper
 
 #region role CRED

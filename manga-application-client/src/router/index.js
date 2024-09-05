@@ -38,6 +38,21 @@ const router = createRouter({
       path: '/create/title',
       name: 'CreateMangaForm',
       component: () => import('@/views/forms/createForms/CreateTitleForm.vue')
+    },
+    {
+      path: '/create/author',
+      name: 'CreateAuthorForm',
+      component: () => import('@/views/forms/createForms/CreateAuthorForm.vue')
+    },
+    {
+      path: '/create/artist',
+      name: 'CreateArtistForm',
+      component: () => import('@/views/forms/createForms/CreateArtistForm.vue')
+    },
+    {
+      path: '/create/publisher',
+      name: 'CreatePublisherForm',
+      component: () => import('@/views/forms/createForms/CreatePublisherForm.vue')
     }
   ]
 })

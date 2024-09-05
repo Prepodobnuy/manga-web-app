@@ -11,10 +11,11 @@ class User(Base):
     id = Column(Integer, primary_key=True)
     email = Column(String)
     username = Column(String)
+    nickname = Column(String)
     hashed_password = Column(String)
     role_id = Column(Integer, ForeignKey('role.id'))
-    nickname = Column(String)
     pfp_path = Column(String)
+
     is_active: bool = Column(Boolean, default=True, nullable=False)
     is_superuser: bool = Column(Boolean, default=False, nullable=False)
     is_verified: bool = Column(Boolean, default=False, nullable=False)
@@ -88,21 +89,28 @@ class Title(Base):
     __tablename__ = 'title'
 
     id = Column(Integer, primary_key=True)
-    age_rating = Column(String)
+
+    # names
+    original_name = Column(String)
     ru_name = Column(String)
     en_name = Column(String)
     alternative_names = Column(String)
-    views = Column(Integer)
+    # info
+    age_rating = Column(String)
     release_year = Column(String)
     description = Column(String)
     status = Column(String)
-    approve_status = Column(Integer) # 0 - pending 1 - released
     translate_status = Column(String)
     franchise = Column(String)
+
     author = Column(String)
     artist = Column(String)
     publisher = Column(String)
+    
     preview_picture_path = Column(String)
+    # meta
+    readers = Column(Integer)
+    approved = Column(Boolean) # 0 - pending 1 - released
 
     title_subscribed_user = relationship('TitleSubscribedUser', back_populates='title')
     title_tag = relationship('TitleTag', back_populates='title')
@@ -111,28 +119,6 @@ class Title(Base):
     chapter = relationship('Chapter', back_populates='title')
     comment = relationship('Comment', back_populates='title')
     listlink = relationship('ListLink', back_populates='title')
-
-    def __init__(self, id: int, age_rating: str = "0+", ru_name: str = "String", en_name: str = "String", alternative_names: str = "String/String",
-                 release_year: str = "2024", description: str = "String", status: str = "String", approve_status: int = 0, translate_status: str = "String",
-                 franchise: str = "String", author: str = "String", artist: str = "String", publisher: str = "String", preview_picture_path: str|None = None) -> None:
-        self.id = id
-        self.age_rating = age_rating
-        self.ru_name = ru_name
-        self.en_name = en_name
-        self.views = 0
-        self.alternative_names = alternative_names
-        self.release_year = release_year
-        self.description = description
-        self.status = status
-        self.approve_status = approve_status
-        self.translate_status = translate_status
-        self.franchise = franchise
-        self.author = author
-        self.artist = artist
-        self.publisher = publisher
-
-    def __repr__(self) -> str:
-        return f"{self.id} {self.ru_name}"
 
 class Rate(Base):
     """
